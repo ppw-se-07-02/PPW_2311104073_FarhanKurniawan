@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #header{
+            background-color: #81088a;
+            height: 50px;
+            text-align: center;
+            color: #fff;
+        }
+
+        #menu{
+            background-color: #db2ee8;
+            height: 40px;
+            text-align: center;
+            color: #fff;
+        }
+
+        #l-side{
+            width: 20%;
+            min-height: 300px;
+            background-color: #c897cc;
+            text-align: center;
+            color: #fff;
+            float: left;
+        }
+
+        #r-side{
+            width: 80%;
+            min-height: 300px;
+            background-color: #6c69d1;
+            text-align: center;
+            color: #fff;
+            float: left;
+        }
+
+        #footer{
+            background-color: #db2ee8;
+            height: 40px;
+            text-align: center;
+            color: #fff;
+            float: left;
+            width: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">Header</div>
+        <div id="menu">
+            <a href="index.html">Beranda</a>
+            <a href="produk.html">Produk</a>
+            <a href="member.html">Member</a>
+            <a href="registrasi.html">Registrasi</a>
+        </div>
+        <div id="l-side">Image Slider</div>
+        <div id="r-side">
+            <table>
+                <tr>
+                    <td>Nama Lengkap</td><td>:</td>
+                    <td><input type="text" name="fullname"></td>
+                </tr>
+
+                <tr>
+                    <td>Alamat</td><td>:</td>
+                    <td><input type="text" name="alamat"></td>
+                </tr>
+
+                <tr>
+                    <td>TTL</td><td>:</td>
+                    <td><input type="text" name="tempat"><input type="date" name="tanggal lahir"></td>
+                </tr>
+
+                <tr>
+                    <td>Jenis Kelamin</td><td>:</td>
+                    <td>
+                        <input type="radio" name="L">Laki-laki
+                        <input type="radio" name="P">Perempuan 
+                    </select></td>
+                </tr>
+
+                <tr>
+                    <td>Agama</td><td>:</td>
+                    <td><select name="agama">
+                        <option value="islam">Islam</option>
+                        <option value="kristen">Kristen</option>
+                        <option value="katolik">Katolik</option>
+                        <option value="hindu">Hindu</option>
+                        <option value="budha">Budha</option>
+                        <option value="konghucu">Konghucu</option>
+                    </select></td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">Footer</div>
+    </div>
+</body>
+</html>
