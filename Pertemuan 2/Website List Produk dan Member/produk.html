@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk - Farhan Kurniawan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #1e3a8a;
+            padding: 30px 0;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            background-color: #fbbf24;
+            width: 280px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .profile h1 {
+            color: #1e3a8a;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .profile p {
+            color: #1e3a8a;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .menu {
+            width: 100%;
+        }
+
+        .menu-item {
+            display: block;
+            width: 100%;
+            padding: 15px 25px;
+            margin-bottom: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: #1e3a8a;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item.active {
+            background-color: #1e3a8a;
+            color: #fbbf24;
+        }
+
+        .menu-item:hover:not(.active) {
+            background-color: rgba(30, 58, 138, 0.1);
+        }
+
+        .content {
+            flex: 1;
+            background-color: #f5f5f5;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        .form-produk {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #fbbf24;
+            color: #1e3a8a;
+        }
+
+        footer {
+            background-color: #1e3a8a;
+            padding: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile" id="profileDisplay">
+                <h1 id="profileName">FARHAN KURNIAWAN</h1>
+                <p id="profileRole">Member</p>
+            </div>
+            
+            <nav class="menu">
+                <a href="index.html" class="menu-item">Home</a>
+                <a href="member.html" class="menu-item">Member</a>
+                <a href="produk.html" class="menu-item active">Produk</a>
+                <a href="registrasi.html" class="menu-item">Registrasi</a>
+            </nav>
+        </aside>
+        
+        <main class="content">
+            <h2>Halaman Produk</h2>
+            
+            <div class="form-produk">
+                <div class="form-group">
+                    <label for="namaProduk">Nama Produk</label>
+                    <input type="text" id="namaProduk" placeholder="Masukkan nama produk">
+                </div>
+
+                <div class="form-group">
+                    <label for="jenisProduk">Jenis Produk</label>
+                    <select id="jenisProduk">
+                        <option value="">-- Pilih Jenis Produk --</option>
+                        <option value="Makanan">Makanan</option>
+                        <option value="Minuman">Minuman</option>
+                        <option value="Elektronik">Elektronik</option>
+                        <option value="Pakaian">Pakaian</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="jumlahProduk">Jumlah Produk</label>
+                    <input type="number" id="jumlahProduk" placeholder="Masukkan jumlah produk">
+                </div>
+
+                <button id="simpanProduk">Simpan Data</button>
+            </div>
+
+            <table id="tabelProduk" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>Nama Produk</th>
+                        <th>Jenis Produk</th>
+                        <th>Jumlah Produk</th>
+                        <th>Member Penginput</th>
+                    </tr>
+                </thead>
+                <tbody id="dataProduk"></tbody>
+            </table>
+        </main>
+    </div>
+    
+    <footer></footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const nama = localStorage.getItem("selectedNama") || "FARHAN KURNIAWAN";
+            const jabatan = localStorage.getItem("selectedJabatan") || "Member";
+
+            document.getElementById("profileName").textContent = nama.toUpperCase();
+            document.getElementById("profileRole").textContent = jabatan;
+
+            // Ambil data produk dari localStorage
+            const dataProduk = JSON.parse(localStorage.getItem("dataProduk")) || [];
+            if (dataProduk.length > 0) {
+                document.getElementById("tabelProduk").style.display = "table";
+                tampilkanTabel(dataProduk);
+            }
+        });
+
+        document.getElementById("simpanProduk").addEventListener("click", function() {
+            const namaProduk = document.getElementById("namaProduk").value.trim();
+            const jenisProduk = document.getElementById("jenisProduk").value;
+            const jumlahProduk = document.getElementById("jumlahProduk").value;
+            const member = document.getElementById("profileName").textContent;
+
+            if (!namaProduk || !jenisProduk || !jumlahProduk) {
+                alert("Harap isi semua field!");
+                return;
+            }
+
+            const dataBaru = { 
+                namaProduk, 
+                jenisProduk, 
+                jumlahProduk, 
+                member 
+            };
+
+            let dataProduk = JSON.parse(localStorage.getItem("dataProduk")) || [];
+            dataProduk.push(dataBaru);
+            localStorage.setItem("dataProduk", JSON.stringify(dataProduk));
+
+            tampilkanTabel(dataProduk);
+            document.getElementById("tabelProduk").style.display = "table";
+
+            // Reset input
+            document.getElementById("namaProduk").value = "";
+            document.getElementById("jenisProduk").value = "";
+            document.getElementById("jumlahProduk").value = "";
+
+            alert("Data produk berhasil disimpan!");
+        });
+
+        function tampilkanTabel(dataProduk) {
+            const tbody = document.getElementById("dataProduk");
+            tbody.innerHTML = "";
+            dataProduk.forEach(item => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${item.namaProduk}</td>
+                    <td>${item.jenisProduk}</td>
+                    <td>${item.jumlahProduk}</td>
+                    <td>${item.member}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+</html>

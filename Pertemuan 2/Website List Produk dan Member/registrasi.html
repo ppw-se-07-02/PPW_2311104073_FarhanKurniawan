@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi - Farhan Kurniawan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #1e3a8a;
+            padding: 30px 0;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            background-color: #fbbf24;
+            width: 280px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .profile h1 {
+            color: #1e3a8a;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .profile p {
+            color: #1e3a8a;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .menu {
+            width: 100%;
+        }
+
+        .menu-item {
+            display: block;
+            width: 100%;
+            padding: 15px 25px;
+            margin-bottom: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: #1e3a8a;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item.active {
+            background-color: #1e3a8a;
+            color: #fbbf24;
+        }
+
+        .menu-item:hover:not(.active) {
+            background-color: rgba(30, 58, 138, 0.1);
+        }
+
+        .content {
+            flex: 1;
+            background-color: #f5f5f5;
+            padding: 40px;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        input:focus, select:focus {
+            border-color: #1e3a8a;
+            outline: none;
+        }
+
+        button {
+            background-color: #1e3a8a;
+            color: #fbbf24;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2b4db7;
+        }
+
+        footer {
+            background-color: #1e3a8a;
+            padding: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile">
+                <h1 id="profileName">Farhan Kurniawan</h1>
+                <p id="profileRole">Member</p>
+            </div>
+            
+            <nav class="menu">
+                <a href="index.html" class="menu-item">Home</a>
+                <a href="member.html" class="menu-item">Member</a>
+                <a href="produk.html" class="menu-item">Produk</a>
+                <a href="registrasi.html" class="menu-item active">Registrasi</a>
+            </nav>
+        </aside>
+        
+        <main class="content">
+            <h2>Halaman Registrasi</h2>
+            <p>Isi data registrasi sesuai kebutuhan Anda.</p>
+
+            <div class="form-container">
+                <form id="registrasiForm">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Masukkan email aktif" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telepon">No. Telepon</label>
+                        <input type="tel" id="telepon" name="telepon" placeholder="Masukkan nomor telepon" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jabatan">Jabatan</label>
+                        <select id="jabatan" name="jabatan" required>
+                            <option value="">-- Pilih Jabatan --</option>
+                            <option value="Member">Member</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Supervisor">Supervisor</option>
+                            <option value="Manager">Manager</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Simpan Data</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    
+    <footer></footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const nama = localStorage.getItem("selectedNama");
+        const jabatan = localStorage.getItem("selectedJabatan");
+
+        if (nama && jabatan) {
+            document.getElementById("profileName").textContent = nama.toUpperCase();
+            document.getElementById("profileRole").textContent = jabatan;
+        }
+
+        // ✅ Simpan data form ke localStorage sebagai array
+        document.getElementById("registrasiForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const namaInput = document.getElementById("nama").value.trim();
+            const emailInput = document.getElementById("email").value.trim();
+            const teleponInput = document.getElementById("telepon").value.trim();
+            const jabatanInput = document.getElementById("jabatan").value;
+
+            if (!namaInput || !emailInput || !teleponInput || !jabatanInput) {
+                alert("Mohon isi semua field sebelum menyimpan!");
+                return;
+            }
+
+            // Ambil data lama dari localStorage
+            let dataMember = JSON.parse(localStorage.getItem("dataMember")) || [];
+
+            // Tambahkan data baru
+            dataMember.push({
+                nama: namaInput,
+                email: emailInput,
+                telepon: teleponInput,
+                jabatan: jabatanInput
+            });
+
+            // Simpan kembali ke localStorage
+            localStorage.setItem("dataMember", JSON.stringify(dataMember));
+
+            alert("Data berhasil disimpan ke daftar member!");
+            this.reset();
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Farhan Kurniawan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #1e3a8a;
+            padding: 30px 0;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            background-color: #fbbf24;
+            width: 280px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .profile h1 {
+            color: #1e3a8a;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .profile p {
+            color: #1e3a8a;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .menu {
+            width: 100%;
+        }
+
+        .menu-item {
+            display: block;
+            width: 100%;
+            padding: 15px 25px;
+            margin-bottom: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: #1e3a8a;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item.active {
+            background-color: #1e3a8a;
+            color: #fbbf24;
+        }
+
+        .menu-item:hover:not(.active) {
+            background-color: rgba(30, 58, 138, 0.1);
+        }
+
+        .content {
+            flex: 1;
+            background-color: #f5f5f5;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        .box-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .info-box {
+            flex: 1;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .info-box h3 {
+            color: #1e3a8a;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            font-size: 36px;
+            font-weight: bold;
+            color: #fbbf24;
+        }
+
+        footer {
+            background-color: #1e3a8a;
+            padding: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile" id="profileDisplay">
+                <h1 id="profileName">FARHAN KURNIAWAN</h1>
+                <p id="profileRole">Member</p>
+            </div>
+            
+            <nav class="menu">
+                <a href="index.html" class="menu-item active">Home</a>
+                <a href="member.html" class="menu-item">Member</a>
+                <a href="produk.html" class="menu-item">Produk</a>
+                <a href="registrasi.html" class="menu-item">Registrasi</a>
+            </nav>
+        </aside>
+        
+        <main class="content">
+            <h2>Selamat datang di Halaman Home</h2>
+            <p>Klik menu di sidebar untuk berpindah halaman.</p>
+
+            <!-- ✅ Box Statistik -->
+            <div class="box-container">
+                <div class="info-box">
+                    <h3>Jumlah Member</h3>
+                    <p id="jumlahMember">0</p>
+                </div>
+                <div class="info-box">
+                    <h3>Jumlah Produk</h3>
+                    <p id="jumlahProduk">0</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer></footer>
+
+    <script>
+        // ✅ Saat halaman dimuat, ambil data profil & statistik
+        document.addEventListener("DOMContentLoaded", function() {
+            // Profil user yang dipilih
+            const nama = localStorage.getItem("selectedNama");
+            const jabatan = localStorage.getItem("selectedJabatan");
+
+            if (nama && jabatan) {
+                document.getElementById("profileName").textContent = nama.toUpperCase();
+                document.getElementById("profileRole").textContent = jabatan;
+            }
+
+            // ✅ Ambil data member & produk dari localStorage
+            const dataMember = JSON.parse(localStorage.getItem("dataMember")) || [];
+            const dataProduk = JSON.parse(localStorage.getItem("dataProduk")) || [];
+
+            // ✅ Tampilkan jumlahnya di box
+            document.getElementById("jumlahMember").textContent = dataMember.length;
+            document.getElementById("jumlahProduk").textContent = dataProduk.length;
+        });
+    </script>
+</body>
+</html>
