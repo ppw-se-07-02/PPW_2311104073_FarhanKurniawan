@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout Web Contoh</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      display: flex;
+      flex-direction: column; /* Supaya footer bisa "nempel" di bawah */
+    }
+
+    /* HEADER */
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* NAVIGASI */
+    nav {
+      background: #34495e;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* KONTEN GRID */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 15px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+      flex: 1; /* Supaya konten mendorong footer ke bawah */
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .box {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* POPULER */
+    .populer ul {
+      list-style: none;
+      padding: 0;
+    }
+    .populer li {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    /* KONTEN DINAMIS */
+    .konten article {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    .konten h2 {
+      margin: 0 0 5px 0;
+      font-size: 20px;
+      color: #2c3e50;
+    }
+    .konten p {
+      margin: 0;
+      color: #555;
+    }
+
+    /* IKLAN */
+    .iklan img {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .iklan .promo {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .iklan .promo h4 {
+      margin: 5px 0;
+      font-size: 16px;
+      color: #2c3e50;
+    }
+    .iklan .promo p {
+      font-size: 14px;
+      color: #555;
+      margin: 0 0 8px 0;
+    }
+    .iklan .promo a {
+      display: inline-block;
+      background: #e67e22;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .iklan .promo a:hover {
+      background: #d35400;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Website Portal Nusantara</h1>
+    <p>Berita - Produk - Komunitas - Informasi</p>
+  </header>
+
+  <!-- Navigasi -->
+  <nav>
+    <a href="#">Beranda</a>
+    <a href="#">Produk</a>
+    <a href="#">Member</a>
+    <a href="#">Login</a>
+  </nav>
+
+  <!-- Konten -->
+  <div class="container">
+
+    <!-- Populer -->
+    <div class="box populer">
+      <h3>Populer</h3>
+      <ul>
+        <li>🔥 Berita: Festival Budaya Nusantara 2025</li>
+        <li>🧥 Produk Batik Terlaris Bulan Ini</li>
+        <li>📢 Pengumuman Member Premium</li>
+        <li>📰 Tips UMKM Naik Kelas</li>
+      </ul>
+    </div>
+
+    <!-- Konten Dinamis -->
+    <div class="box konten">
+      <article>
+        <h2>Festival Budaya Nusantara 2025 Resmi Dibuka</h2>
+        <p>Pembukaan festival meriah dengan tarian tradisional dan pameran kuliner dari berbagai daerah...</p>
+      </article>
+      <article>
+        <h2>Produk Batik Eksklusif Kini Tersedia Online</h2>
+        <p>Koleksi batik premium dari pengrajin lokal hadir untuk Anda dengan desain elegan dan harga bersahabat...</p>
+      </article>
+      <article>
+        <h2>Event Komunitas: Workshop UMKM Digital</h2>
+        <p>Ikuti pelatihan gratis untuk meningkatkan penjualan online melalui strategi digital marketing terkini.</p>
+      </article>
+    </div>
+
+    <!-- Iklan -->
+    <div class="box iklan">
+      <h3>Iklan</h3>
+
+      <div class="promo">
+        <img src="https://via.placeholder.com/300x250?text=Promo+Batik+Diskon+50%" alt="Iklan 1">
+        <h4>Diskon 50% Koleksi Batik!</h4>
+        <p>Hanya minggu ini. Dapatkan batik premium dengan harga super miring.</p>
+        <a href="#">Belanja Sekarang</a>
+      </div>
+
+      <div class="promo">
+        <img src="https://via.placeholder.com/300x250?text=Iklan+Workshop+UMKM" alt="Iklan 2">
+        <h4>Workshop UMKM Gratis</h4>
+        <p>Tingkatkan bisnis Anda dengan pelatihan digital marketing.</p>
+        <a href="#">Daftar Sekarang</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Portal Nusantara | Semua Hak Dilindungi
+  </footer>
+
+</body>
+</html>
