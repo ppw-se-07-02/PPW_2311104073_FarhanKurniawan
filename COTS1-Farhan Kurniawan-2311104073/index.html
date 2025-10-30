@@ -17,12 +17,25 @@
       background-color: #1f2937;
       border-radius: 10px;
       padding: 1rem;
-      height: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     .card {
       background-color: #2d3748;
       border: none;
     }
+
+    /* 🔥 Tambahan agar tulisan produk jadi putih */
+    .card-title,
+    .best-game h6,
+    .card-text,
+    .best-game .text-info {
+      color: white !important;
+    }
+
     footer {
       background: #111827;
       padding: 1rem;
@@ -146,6 +159,32 @@
             </div>
           </div>
 
+          <!-- Game 4 -->
+          <div class="col-md-6 col-lg-4 game-item">
+            <div class="card text-center shadow">
+              <img src="assets/img/cyberpunk2077.jpg" class="card-img-top" alt="Cyberpunk 2077">
+              <div class="card-body">
+                <h5 class="card-title">Cyberpunk 2077</h5>
+                <p class="card-text text-info fw-semibold">Rp 599.000</p>
+                <a href="detailbarang.html?game=cyberpunk2077" class="btn btn-outline-light btn-sm">Detail</a>
+                <button class="btn btn-primary btn-sm">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Game 5 -->
+          <div class="col-md-6 col-lg-4 game-item">
+            <div class="card text-center shadow">
+              <img src="assets/img/hogwartslegacy.jpg" class="card-img-top" alt="Hogwarts Legacy">
+              <div class="card-body">
+                <h5 class="card-title">Hogwarts Legacy</h5>
+                <p class="card-text text-info fw-semibold">Rp 750.000</p>
+                <a href="detailbarang.html?game=hogwartslegacy" class="btn btn-outline-light btn-sm">Detail</a>
+                <button class="btn btn-primary btn-sm">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -220,7 +259,6 @@
         }
       });
 
-      // sembunyikan rekomendasi saat sedang mencari
       if (keyword !== "" && matchFound) {
         recommendationSection.style.display = "none";
       } else if (keyword === "") {
@@ -228,7 +266,6 @@
       }
     });
 
-    // Tombol hapus pencarian
     clearBtn.addEventListener("click", () => {
       searchInput.value = "";
       games.forEach(g => g.style.display = "block");
