@@ -1,0 +1,14 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+.card:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+.btn-primary {
+  background: linear-gradient(90deg, #6a00f4, #00e0ff);
+  border: none;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+}
