@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Mahasiswa</title>
+</head>
+<body>
+  <h2>Data Mahasiswa</h2>
+  <button onclick="loadData()">Load Data</button>
+  <ul id="list"></ul>
+
+  <script>
+    function loadData() {
+      fetch("/api/mahasiswa")
+        .then(res => res.json())
+        .then(data => {
+          let list = document.getElementById("list");
+          list.innerHTML = "";
+          data.forEach(m => {
+            list.innerHTML += `<li>${m.nama} - ${m.nim}</li>`;
+          });
+        });
+    }
+  </script>
+</body>
+</html>
